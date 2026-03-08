@@ -89,13 +89,13 @@ VERIFIED   MISMATCH / MISSING
 
 | Feature | Detail |
 |---|---|
-| **Async GLEIF fetching** | `aiohttp` + `asyncio.Semaphore` — 100+ LEIs concurrently, <200ms per batch |
+| **Async GLEIF fetching** | `aiohttp` + `asyncio.Semaphore` — concurrent batch fetching, up to 10 parallel requests, designed for 100+ LEIs per run |
 | **Field-level validation** | Name, country, legal form, LEI status — each flagged independently |
 | **RAG entity resolution** | `all-MiniLM-L6-v2` embeddings → FAISS ANN search → optional LLM re-ranking |
 | **Quality scoring** | Weighted model: name 40%, country 20%, legal form 20%, active status 20% |
 | **Idempotent pipeline** | `INSERT OR REPLACE` — safe to re-run without duplicates |
 | **Airflow orchestration** | 7-task DAG, daily schedule, 2 retries, XCom-based task handoff |
-| **Sub-second DuckDB queries** | Columnar storage — aggregations on 50K+ rows in <100ms |
+| **Sub-second DuckDB queries** | Columnar storage — vectorized execution designed to handle 50K+ rows with fast aggregations |
 | **Parquet export** | One-command export for downstream dbt / Spark / Snowflake pipelines |
 
 ---
