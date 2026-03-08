@@ -1,0 +1,26 @@
+client_id,scenario,entity_name,entity_lei,country,legal_form,contact_email,contact_phone,client_system,onboarded_date,notes
+C001,VERIFIED,Apple Inc.,5493001KJTIIGC8Y1R12,US,Corporation,compliance@apple-corp.com,+1-408-996-1010,CRM,2022-03-15,"Clean match — name, country, legal form all correct"
+C002,VERIFIED,Deutsche Bank AG,7LTWFZYICNSX8D621K86,DE,AG,lei-ops@deutschebank.de,+49-69-910-00,ERP,2021-11-02,Clean match — German AG structure
+C003,VERIFIED,HSBC Holdings plc,MLQ7PELV8RB2YCB57Z26,GB,PLC,entity-data@hsbc.com,+44-20-7991-8888,CRM,2023-01-20,Clean match — UK PLC
+C004,VERIFIED,BNP Paribas,R0MUWSFPU8MPRO8K5P83,FR,SA,bnp-lei@bnpparibas.fr,+33-1-40-14-45-46,TRADE_PORTAL,2022-07-08,Clean match — French SA
+C005,VERIFIED,Citigroup Inc.,6SHGI4ZSSLCXXQSBB395,US,Corporation,lei-team@citi.com,+1-212-559-1000,CRM,2020-05-11,Clean match
+C006,NAME_MISMATCH,Goldman Sachs Group,W22LROWP2IHZNBB6K528,US,Corporation,gs-compliance@gs.com,+1-212-902-1000,ERP,2021-09-14,Name mismatch: client has abbreviated name vs GLEIF full legal name
+C007,NAME_MISMATCH,JP Morgan Chase,8I5DZWZKVSZI1NUHU748,US,Corporation,jpm-lei@jpmorgan.com,+1-212-270-6000,TRADE_PORTAL,2022-02-28,Name mismatch: common abbreviation vs full registered name
+C008,NAME_MISMATCH,Barclays Bank,G5GSEF7VJP5I7OUK5573,GB,PLC,entitydata@barclays.com,+44-20-7116-1000,CRM,2023-04-03,Name mismatch: 'Bank' vs 'PLC' suffix confusion
+C009,NAME_MISMATCH,Credit Suisse,ANGGYXNX0JLX3X63AW49,CH,AG,lei@credit-suisse.com,+41-44-333-11-11,ERP,2019-08-22,Name mismatch: missing legal suffix AG
+C010,COUNTRY_MISMATCH,UBS AG,BFM8T61CT2L1QCEMIK50,DE,AG,ubs-lei@ubs.com,+41-44-234-11-11,TRADE_PORTAL,2021-06-17,Country mismatch: client recorded DE (Germany) but GLEIF says CH (Switzerland)
+C011,COUNTRY_MISMATCH,Societe Generale SA,O2RNE8IBXP4R0TD8PU41,BE,SA,sg-ops@socgen.fr,+33-1-42-14-20-00,CRM,2022-10-05,Country mismatch: Belgium vs France — data entry error
+C012,LEGAL_FORM_MISMATCH,HSBC Holdings plc,MLQ7PELV8RB2YCB57Z26,GB,LLC,hsbc-compliance@hsbc.com,+44-20-7991-8888,ERP,2020-12-01,Legal form mismatch: LLC vs PLC — common US/UK confusion
+C013,LEGAL_FORM_MISMATCH,Deutsche Bank AG,7LTWFZYICNSX8D621K86,DE,GmbH,db-entity@db.com,+49-69-910-00,CRM,2023-03-14,Legal form mismatch: GmbH vs AG — both German forms but different
+C014,MULTIPLE_MISMATCH,Morgan Stanley International,IGJSJL3JD5P30I4NX349,UK,LLC,ms-lei@morganstanley.com,+1-212-761-4000,TRADE_PORTAL,2021-04-19,Multiple mismatches: name + country + legal form all wrong
+C015,MISSING_LEI,Sunrise Capital Partners Ltd,,IN,Private Limited,ops@sunrise-capital.in,+91-22-6612-3400,CRM,2023-07-11,"No LEI registered — Indian private company, not required to have LEI"
+C016,MISSING_LEI,Horizon Ventures Pte Ltd,,SG,Pte Ltd,admin@horizonventures.sg,+65-6222-1234,ERP,2022-11-30,"No LEI — Singapore private entity, onboarded before LEI mandate"
+C017,MISSING_LEI,Pinnacle Asset Management,,AE,LLC,lei@pinnacle-am.ae,+971-4-312-8800,TRADE_PORTAL,2023-01-05,Missing LEI — entity flagged for LEI registration follow-up
+C018,INVALID_LEI,Alpine Trading GmbH,FAKELEIFAKE123456789,AT,GmbH,info@alpine-trading.at,+43-1-512-3456,CRM,2022-05-23,"Invalid LEI — data entry error, will return MISSING from GLEIF"
+C019,INVALID_LEI,Pacific Rim Financial Services,00000000000000000000,HK,Limited,compliance@pacificrimfs.hk,+852-2500-8888,ERP,2021-08-16,Zeroed-out LEI — placeholder entered during migration
+C020,INACTIVE_LEI,Archegos Capital Management LP,549300GRLEBN9NQWZN47,US,LP,ops@archegos.com,+1-212-300-0000,TRADE_PORTAL,2019-03-10,"Inactive LEI — entity dissolved, LEI lapsed. Classic counterparty risk case."
+C021,PARTIAL_DATA,Standard Chartered PLC,RILFO74KP1CM8P6PCT96,,,sc-lei@sc.com,+44-20-7885-8888,CRM,2022-09-19,Partial data — LEI present but country and legal form need GLEIF enrichment
+C022,PARTIAL_DATA,ING Groep NV,3TK20IVIUJ8J3ZU0QE75,NL,,ing-lei@ing.nl,+31-20-563-9111,ERP,2021-12-07,"Partial data — legal form missing, will be enriched from GLEIF"
+C023,DUPLICATE_CHECK,Apple Inc.,5493001KJTIIGC8Y1R12,US,Corporation,finance@apple-vendor.com,+1-669-999-2273,VENDOR_PORTAL,2023-08-01,Duplicate LEI — same LEI as C001 from different system. Tests deduplication logic.
+C024,RESOLUTION_CHALLENGE,GS Capital Partners,,US,LP,gs-cap@gscapital.com,+1-212-357-4000,CRM,2022-06-14,"No LEI, ambiguous name — tests RAG/fuzzy entity resolution"
+C025,RESOLUTION_CHALLENGE,Deutsche Bank Securities Inc,,US,Corporation,db-sec@db.com,+1-212-250-2500,TRADE_PORTAL,2023-05-22,"No LEI, subsidiary name — tests whether RAG resolves to parent or subsidiary"

@@ -1,0 +1,29 @@
+# Core
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+pydantic==2.7.1
+
+# Data
+pandas==2.2.2
+duckdb==0.10.3
+pyarrow==16.0.0
+openpyxl==3.1.2
+
+# Async HTTP
+aiohttp==3.9.5
+
+# RAG / Embeddings
+sentence-transformers==2.7.0
+faiss-cpu==1.8.0
+
+# Fallback fuzzy
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.25.1
+
+# Orchestration
+apache-airflow==2.9.1
+
+# Testing
+pytest==8.2.0
+pytest-asyncio==0.23.6
+httpx==0.27.0
